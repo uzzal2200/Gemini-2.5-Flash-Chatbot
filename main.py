@@ -1,7 +1,7 @@
 import os
 import streamlit as st
 from dotenv import load_dotenv
-from google import genai
+import google.generativeai as genai   
 
 # --- Page Config ---
 st.set_page_config(
@@ -68,9 +68,11 @@ load_dotenv()
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 if not GOOGLE_API_KEY:
     st.error("API Key not found! Please check your .env file.")
+else:
+    genai.configure(api_key=GOOGLE_API_KEY)
 
-# --- Initialize Gemini client ---
-client = genai.Client(api_key=GOOGLE_API_KEY)
+# --- Initialize Gemini model ---
+model = genai.GenerativeModel("gemini-2.5-flash")
 
 # --- Chat history ---
 if "chat_history" not in st.session_state:
@@ -94,10 +96,7 @@ if user_prompt:
         st.markdown(user_prompt)
     with st.spinner("Gemini is thinking..."):
         try:
-            response = client.models.generate_content(
-                model="gemini-2.5-flash",
-                contents=user_prompt,
-            )
+            response = model.generate_content(user_prompt)  # ✅ Updated
             st.session_state.chat_history.append({"role": "assistant", "content": response.text})
             with st.chat_message("assistant"):
                 st.markdown(response.text)
