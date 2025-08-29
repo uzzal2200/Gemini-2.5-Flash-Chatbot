@@ -1,7 +1,7 @@
 import os
 import streamlit as st
 from dotenv import load_dotenv
-import google.generativeai as genai   # ✅ সঠিক import
+import google.generativeai as genai   
 
 # --- Page Config ---
 st.set_page_config(
