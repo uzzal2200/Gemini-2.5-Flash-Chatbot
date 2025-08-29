@@ -13,7 +13,7 @@ This project is a simple chatbot web application built with Streamlit and Google
 
 ### 1. Clone the Repository
 ```
-git clone <your-repo-url>
+git clone https://github.com/uzzal2200/Gemini-2.5-Flash-Chatbot.git
 cd Gemni-Pro-Streamlit-Chatbot
 ```
 
@@ -40,6 +40,11 @@ GOOGLE_API_KEY=your_api_key_here
 streamlit run main.py
 ```
 
+### 6. Live link
+```
+https://gemini-25-flash-chatbot-khneq5py44c7strj5pnz72.streamlit.app
+```
+
 ## File Structure
 - `main.py` : Streamlit chatbot app using Gemini 2.5 Flash
 - `demo.py` : Simple script to test Gemini API
@@ -52,4 +57,5 @@ streamlit run main.py
 - If you see errors, check your `.env` and dependencies.
 
 ## License
+
 This project is for educational purposes.
