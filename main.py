@@ -1,7 +1,7 @@
 import os
 import streamlit as st
 from dotenv import load_dotenv
-import google.generativeai as genai   
+import google.generativeai as genai   # ✅ সঠিক import
 
 # --- Page Config ---
 st.set_page_config(
@@ -67,7 +67,7 @@ with st.sidebar:
 load_dotenv()
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 if not GOOGLE_API_KEY:
-    st.error("API Key not found! Please check your .env file.")
+    st.error("")
 else:
     genai.configure(api_key=GOOGLE_API_KEY)
 
